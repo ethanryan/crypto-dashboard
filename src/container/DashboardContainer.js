@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 
 import * as api from '../api'
 
+import ShowListings from '../components/ShowListings';
+
 import '../App.css';
 
 class DashboardContainer extends Component {
@@ -31,6 +33,11 @@ class DashboardContainer extends Component {
         <p className="DashboardContainer-intro">
           Crytocurrency coin information will be listed below.
         </p>
+
+        <ShowListings
+          listings={this.state.listings}
+        />
+
       </div>
     );
   }
