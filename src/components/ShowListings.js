@@ -9,10 +9,6 @@ class ShowListings extends Component {
           This is the ShowListings component.
         </h1>
 
-        {/* <p>
-          first listing is: {this.props.listings.data ? this.props.listings.data[0].name: 'name here...'}
-        </p> */}
-
           {this.props.listings.data ?
             this.props.listings.data.map( (coin, index) =>
               <div key={index}>
@@ -26,7 +22,7 @@ class ShowListings extends Component {
                   symbol: {coin.symbol}
                 </div>
                 <div>
-                  
+
                   -----------
                 </div>
               </div>
