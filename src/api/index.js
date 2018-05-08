@@ -6,3 +6,10 @@ export function getListings() {
   .then( console.log('step 1, returning response.json()...') )
   .then( response => response.json() )
 }
+
+export function getTicker() {
+  console.log('0. calling getTicker...')
+  return fetch(`${baseUrl}/ticker/`)
+  .then( console.log('step 1, returning response.json()...') )
+  .then( response => response.json() )
+}
