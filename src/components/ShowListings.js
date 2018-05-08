@@ -8,7 +8,31 @@ class ShowListings extends Component {
         <h1>
           This is the ShowListings component.
         </h1>
-        first listing is: {this.props.listings.data ? this.props.listings.data[0].name: 'name here...'}
+
+        {/* <p>
+          first listing is: {this.props.listings.data ? this.props.listings.data[0].name: 'name here...'}
+        </p> */}
+
+          {this.props.listings.data ?
+            this.props.listings.data.map( (coin, index) =>
+              <div key={index}>
+                <h1>
+                  {coin.name}
+                </h1>
+                <div>
+                  id: {coin.id}
+                </div>
+                <div>
+                  symbol: {coin.symbol}
+                </div>
+                <div>
+                  
+                  -----------
+                </div>
+              </div>
+            )
+            :
+            "no data..." }
       </div>
     )
   }
