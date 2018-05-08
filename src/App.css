@@ -5,7 +5,7 @@
 .DashboardContainer-header {
   background: #7F00FF; /* fallback for old browsers */
   background: linear-gradient(to right, #E100FF, #7F00FF);
-  height: 150px;
+  /* height: 150px; */
   padding: 20px;
   color: white;
 }
