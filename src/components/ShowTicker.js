@@ -83,7 +83,10 @@ class ShowTicker extends Component {
           </div>
         )
         :
-        "no tickerData..." }
+        <h1>
+          {"no tickerData..."}
+        </h1>
+      }
       </div>
     )
   }
