@@ -8,10 +8,17 @@ class ShowTicker extends Component {
 
     if (tickerData) {
       var tickerArray = Object.values(tickerData) //create array from object, this.props.ticker[0]
+
+      tickerArray = tickerArray.sort(function(a, b) {
+        return a.rank - b.rank;
+      });
+
       var tickerLength = tickerArray.length
+      console.log('tickerLength is::: ', tickerLength)
+      console.log('tickerArray is::: ', tickerArray)
+      console.log('tickerArray[0] is::: ', tickerArray[0])
     }
 
-    console.log('tickerLength is::: ', tickerLength)
 
 
     return (
@@ -22,29 +29,61 @@ class ShowTicker extends Component {
 
         Number of cryptocurrencies show below, in order of rank: {tickerLength}
 
-          {tickerData ?
-            tickerArray.map( (coin, index) =>
-              <div key={index}>
-                <h1>
-                  {coin.name}
-                </h1>
-                <div>
-                  id: {coin.id}
-                </div>
-                <div>
-                  rank: {coin.rank}
-                </div>
-                <div>
-                  symbol: {coin.symbol}
-                </div>
-                <div>
+        {tickerData ?
+          tickerArray.map( (coin, index) =>
+          <div key={index}>
+            <h1>
+              {coin.name}
+            </h1>
+            <div>
+              rank: {coin.rank}
+            </div>
+            <div>
+              symbol: {coin.symbol}
+            </div>
+            <div>
+              circulating supply: {coin.circulating_supply}
+            </div>
+            <div>
+              total supply: {coin.total_supply}
+            </div>
+            <div>
+              max supply: {coin.max_supply ? coin.max_supply : "null"}
+            </div>
+            <div>
+              last updated: {coin.last_updated}
+            </div>
+            <div>
 
-                  -----------
-                </div>
+              <h2>
+                quotes, in USD:
+              </h2>
+
+                price: ${coin.quotes.USD.price}
               </div>
-            )
-            :
-            "no tickerData..." }
+
+              <div>
+                percent change 1h: {coin.quotes.USD.percent_change_1h}%
+              </div>
+
+              <div>
+                percent change 7d: {coin.quotes.USD.percent_change_7d}%
+              </div>
+
+              <div>
+                percent change 24h: {coin.quotes.USD.percent_change_24h}%
+              </div>
+              <div>
+                volume 24h: {coin.quotes.USD.volume_24h}
+              </div>
+            <div>
+
+              -----------
+            </div>
+          </div>
+        )
+        :
+        "no tickerData..." }
       </div>
     )
   }
