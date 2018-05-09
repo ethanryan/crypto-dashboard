@@ -13,8 +13,9 @@ class ShowTicker extends Component {
     console.log('this.props.global is::: ', this.props.global)
 
     let tickerData = this.props.ticker //this is an object
+    let globalData = this.props.global //this is an object
 
-    if (tickerData) {
+    if (tickerData && globalData) {
       var tickerArray = Object.values(tickerData) //create array from object, this.props.ticker[0]
 
       tickerArray = tickerArray.sort(function(a, b) {
@@ -29,14 +30,18 @@ class ShowTicker extends Component {
       // var pieChartDataFirstTwenty = pieChartData.slice(0, 20)
       var pieChartDataTopTen = pieChartDataTopOneHundred.slice(0, 10)
 
-      var pieChartDataTotalMarketCap = pieChartDataTopOneHundred.slice(0, 10)
+      var totalMarketCapArray = ["Total Market Cap", globalData.quotes.USD.total_market_cap]
+
+      var pieChartDataTotalMarketCap = [["Bitcoin", tickerArray[0].quotes.USD.market_cap], ["Total Market Cap", globalData.quotes.USD.total_market_cap]]
 
       var tickerLength = tickerArray.length
       console.log('tickerLength is::: ', tickerLength)
-      console.log('tickerArray is::: ', tickerArray)
+      // console.log('tickerArray is::: ', tickerArray)
       console.log('tickerArray[0] is::: ', tickerArray[0])
       console.log('pieChartDataTopOneHundred is::: ', pieChartDataTopOneHundred)
-      console.log('pieChartDataTopOneHundred[0] is::: ', pieChartDataTopOneHundred[0])
+      console.log('globalData is::: ', globalData)
+      console.log('totalMarketCapArray is::: ', totalMarketCapArray)
+      // console.log('pieChartDataTopOneHundred[0] is::: ', pieChartDataTopOneHundred[0])
     }
 
 
@@ -72,14 +77,33 @@ class ShowTicker extends Component {
         <br></br>
         <br></br>
 
+      <div className="outline-here">
         <h2>
-          Top 100 cryptocurrencies by market cap, as a fraction of the total market cap of all cryptocurrencies:
+          Top cryptocurrency by market cap, as a fraction of the total market cap of all cryptocurrencies:
         </h2>
 
-        {/* <PieChart data={pieChartDataTotalMarketCap} />
+        <PieChart data={pieChartDataTotalMarketCap} />
+
+        <div>
+          Active Cryptocurrencies: {globalData ? globalData.active_cryptocurrencies.toLocaleString() : "shrug"}
+        </div>
+        <div>
+          Active Markets: {globalData ? globalData.active_markets.toLocaleString() : "shrug"}
+        </div>
+        <div>
+          Bitcoin percentage of market cap: {globalData ? globalData.bitcoin_percentage_of_market_cap.toLocaleString() : "shrug"}%
+        </div>
+        <div>
+          Total cryptocurrency market cap (USD): {globalData ? globalData.quotes.USD.total_market_cap.toLocaleString() : "shrug"}
+        </div>
+        <div>
+          Total volume in last 24 hours: {globalData ? globalData.quotes.USD.total_volume_24h.toLocaleString() : "shrug"}
+        </div>
+
+      </div>
 
         <br></br>
-        <br></br> */}
+        <br></br>
 
         Number of cryptocurrencies show below, in order of rank: {tickerLength}
 
