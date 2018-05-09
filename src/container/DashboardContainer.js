@@ -1,11 +1,17 @@
 import React, { Component } from 'react';
 
+import '../App.css';
+
 import * as api from '../api'
 
 // import ShowListings from '../components/ShowListings';
 import ShowTicker from '../components/ShowTicker';
 
-import '../App.css';
+import ReactChartkick, { LineChart, PieChart } from 'react-chartkick'
+import Chart from 'chart.js'
+
+ReactChartkick.addAdapter(Chart)
+
 
 class DashboardContainer extends Component {
   constructor() {
@@ -44,6 +50,8 @@ class DashboardContainer extends Component {
         <p className="DashboardContainer-intro">
           Crytocurrency coin information will be listed below.
         </p>
+
+        <PieChart data={[["Blueberry", 44], ["Strawberry", 23]]} />
 
         {/* <ShowListings
           listings={this.state.listings}
