@@ -72,13 +72,13 @@ class ShowTicker extends Component {
         <br></br>
 
         <h2>
-          Top 100 cryptocurrencies by market cap, as a fraction of all the market cap of all cryptocurrencies:
+          Top 100 cryptocurrencies by market cap, as a fraction of the total market cap of all cryptocurrencies:
         </h2>
 
-        <PieChart data={pieChartDataTotalMarketCap} />
+        {/* <PieChart data={pieChartDataTotalMarketCap} />
 
         <br></br>
-        <br></br>
+        <br></br> */}
 
         Number of cryptocurrencies show below, in order of rank: {tickerLength}
 
