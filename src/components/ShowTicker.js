@@ -90,15 +90,22 @@ class ShowTicker extends Component {
         <div>
           Active Markets: {globalData ? globalData.active_markets.toLocaleString() : "shrug"}
         </div>
+
+        <br></br>
+        
+        <div>
+          Total volume in last 24 hours: {globalData ? globalData.quotes.USD.total_volume_24h.toLocaleString() : "shrug"}
+        </div>
+
+        <br></br>
+
         <div>
           Bitcoin percentage of market cap: {globalData ? globalData.bitcoin_percentage_of_market_cap.toLocaleString() : "shrug"}%
         </div>
         <div>
-          Total cryptocurrency market cap (USD): {globalData ? globalData.quotes.USD.total_market_cap.toLocaleString() : "shrug"}
+          Total cryptocurrency market cap (USD): ${globalData ? globalData.quotes.USD.total_market_cap.toLocaleString() : "shrug"}
         </div>
-        <div>
-          Total volume in last 24 hours: {globalData ? globalData.quotes.USD.total_volume_24h.toLocaleString() : "shrug"}
-        </div>
+
 
       </div>
 
