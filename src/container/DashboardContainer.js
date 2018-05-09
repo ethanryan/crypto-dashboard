@@ -13,24 +13,29 @@ class DashboardContainer extends Component {
     super()
     this.state = {
       listings: [],
-      ticker: []
+      ticker: [],
+      global: []
     }
   }
 
   componentDidMount() {
-    // console.log('componentDidMount, calling api.getListings from DashboardContainer...')
+    console.log('componentDidMount, making API calls...')
+
     api.getListings()
     .then(response => this.setState({
       listings: response
     }))
-    // console.log('step 2, setting state of listings to response from promise...')
 
-    console.log('componentDidMount, calling api.getTicker from DashboardContainer...')
     api.getTicker()
     .then(response => this.setState({
       ticker: Object.values(response) //converting object into array
     }))
-    console.log('step 2, setting state of ticker to response from promise...')
+
+    api.getGlobal()
+    .then(response => this.setState({
+      global: Object.values(response) //converting object into array
+    }))
+    console.log('step 2, setting state with responses from API call promises...')
   }
 
   render() {
@@ -44,12 +49,9 @@ class DashboardContainer extends Component {
           Crytocurrency coin information will be listed below.
         </p>
 
-        {/* <ShowListings
-          listings={this.state.listings}
-        /> */}
-
         <ShowTicker
           ticker={this.state.ticker}
+          global={this.state.global[1]}
         />
 
       </div>
