@@ -17,3 +17,15 @@
 .DashboardContainer-intro {
   font-size: large;
 }
+
+.green {
+  /* border: 1px solid green; */
+  background-color: green;
+  color: white;
+}
+
+.red {
+  /* border: 1px solid red; */
+  background-color: red;
+  color: white;
+}
