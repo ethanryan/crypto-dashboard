@@ -71,8 +71,9 @@ class ShowTicker extends Component {
               </div>
 
               <div>
-                percent change 24h: {coin.quotes.USD.percent_change_24h}%
+                percent change 24h: <span className={coin.quotes.USD.percent_change_24h > 0 ? "green" : "red"}>{coin.quotes.USD.percent_change_24h}</span>%
               </div>
+
               <div>
                 volume 24h: {coin.quotes.USD.volume_24h}
               </div>
