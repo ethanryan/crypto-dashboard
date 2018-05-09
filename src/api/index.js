@@ -13,3 +13,10 @@ export function getTicker() {
   .then( console.log('step 1, returning response.json()...') )
   .then( response => response.json() )
 }
+
+export function getGlobal() {
+  console.log('0. calling getGlobal...')
+  return fetch(`${baseUrl}/global/`)
+  .then( console.log('step 1, returning response.json()...') )
+  .then( response => response.json() )
+}

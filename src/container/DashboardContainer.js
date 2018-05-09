@@ -39,8 +39,6 @@ class DashboardContainer extends Component {
       <div className="DashboardContainer">
         <header className="DashboardContainer-header">
           <h1>Welcome to Crypto Dashboard</h1>
-
-          <h1>Trying Chartkick</h1>
         </header>
         <p className="DashboardContainer-intro">
           Crytocurrency coin information will be listed below.
