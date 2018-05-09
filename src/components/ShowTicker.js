@@ -1,5 +1,12 @@
 import React, { Component } from 'react'
 
+import ReactChartkick, { PieChart } from 'react-chartkick'
+
+import Chart from 'chart.js'
+
+ReactChartkick.addAdapter(Chart)
+
+
 class ShowTicker extends Component {
   render() {
     console.log('this.props.ticker[0] is::: ', this.props.ticker[0])
@@ -26,6 +33,9 @@ class ShowTicker extends Component {
         <h1>
           This is the ShowTicker component.
         </h1>
+
+        <PieChart data={[["Blueberry", 44], ["Strawberry", 23]]} />
+
 
         Number of cryptocurrencies show below, in order of rank: {tickerLength}
 
