@@ -29,3 +29,9 @@
   background-color: red;
   color: white;
 }
+
+.outline-here {
+  border: 3px solid purple;
+  margin-left: 2%;
+  margin-right: 2%;
+}
