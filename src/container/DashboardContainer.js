@@ -50,7 +50,7 @@ class DashboardContainer extends Component {
         </p>
 
         <ShowTicker
-          ticker={this.state.ticker}
+          ticker={this.state.ticker[0]}
           global={this.state.global[1]}
         />
 

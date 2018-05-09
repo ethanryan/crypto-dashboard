@@ -9,9 +9,10 @@ ReactChartkick.addAdapter(Chart)
 
 class ShowTicker extends Component {
   render() {
-    console.log('this.props.ticker[0] is::: ', this.props.ticker[0])
+    console.log('this.props.ticker is::: ', this.props.ticker)
+    console.log('this.props.global is::: ', this.props.global)
 
-    let tickerData = this.props.ticker[0] //this is an object
+    let tickerData = this.props.ticker //this is an object
 
     if (tickerData) {
       var tickerArray = Object.values(tickerData) //create array from object, this.props.ticker[0]
