@@ -48,14 +48,11 @@ class ShowTicker extends Component {
 
     return (
       <div>
-        <h1>
+        {/* <h1>
           This is the ShowTicker component.
-        </h1>
+        </h1> */}
 
-        {/* <PieChart data={[["Blueberry", 1344], ["Strawberry", 23]]} />
-
-        <br></br>
-        <br></br> */}
+        {/* <PieChart data={[["Blueberry", 1344], ["Strawberry", 23]]} /> */}
 
         {/* [ [name, quotes.USD.market_cap], ] */}
 
@@ -92,7 +89,7 @@ class ShowTicker extends Component {
         </div>
 
         <br></br>
-        
+
         <div>
           Total volume in last 24 hours: {globalData ? globalData.quotes.USD.total_volume_24h.toLocaleString() : "shrug"}
         </div>
