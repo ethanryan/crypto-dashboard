@@ -16,7 +16,7 @@ class ShowTicker extends Component {
     let globalData = this.props.global //this is an object
 
     if (tickerData && globalData) {
-      var tickerArray = Object.values(tickerData) //create array from object, this.props.ticker[0]
+      var tickerArray = Object.values(tickerData) //create array from object, tickerData
 
       tickerArray = tickerArray.sort(function(a, b) {
         return a.rank - b.rank;
@@ -111,7 +111,7 @@ class ShowTicker extends Component {
 
         Number of cryptocurrencies show below, in order of rank: {tickerLength}
 
-        {tickerData ?
+        {tickerArray ?
           tickerArray.map( (coin, index) =>
           <div key={index}>
             <h1>
