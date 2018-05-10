@@ -149,21 +149,21 @@ class ShowTicker extends Component {
               </div>
 
               <div>
-                percent change 1h: {coin.quotes.USD.percent_change_1h.toLocaleString()}%
+                percent change 1h: <span className={coin.quotes.USD.percent_change_1h > 0 ? "green" : "red"}>
+                {coin.quotes.USD.percent_change_1h.toLocaleString()}
+              </span>%
               </div>
 
               <div>
-                percent change 7d: {coin.quotes.USD.percent_change_7d.toLocaleString()}%
+                percent change 7d: <span className={coin.quotes.USD.percent_change_7d > 0 ? "green" : "red"}>
+                {coin.quotes.USD.percent_change_7d.toLocaleString()}
+              </span>%
               </div>
 
               <div>
                 percent change 24h: <span className={coin.quotes.USD.percent_change_24h > 0 ? "green" : "red"}>
                   {coin.quotes.USD.percent_change_24h.toLocaleString()}
                 </span>%
-              </div>
-
-              <div>
-                percent change 24h: {coin.quotes.USD.percent_change_24h.toLocaleString()}%
               </div>
 
               <div>
