@@ -2,8 +2,8 @@ import React, { Component } from 'react'
 
 class ShowTicker extends Component {
   render() {
-    console.log('this.props.ticker is::: ', this.props.ticker)
-    console.log('this.props.global is::: ', this.props.global)
+    // console.log('this.props.ticker is::: ', this.props.ticker)
+    // console.log('this.props.global is::: ', this.props.global)
 
     let tickerData = this.props.ticker //this is an object
     let globalData = this.props.global //this is an object
@@ -16,11 +16,6 @@ class ShowTicker extends Component {
       });
 
       var tickerLength = tickerArray.length
-      console.log('tickerLength is::: ', tickerLength)
-      // console.log('tickerArray is::: ', tickerArray)
-      console.log('tickerArray[0] is::: ', tickerArray[0])
-      console.log('globalData is::: ', globalData)
-      // console.log('pieChartDataTopOneHundred[0] is::: ', pieChartDataTopOneHundred[0])
     }
 
     function timeConverter(UNIX_timestamp) {
