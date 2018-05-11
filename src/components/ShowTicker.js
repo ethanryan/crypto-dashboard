@@ -7,6 +7,7 @@ import Chart from 'chart.js'
 ReactChartkick.addAdapter(Chart)
 
 
+
 class ShowTicker extends Component {
   render() {
     console.log('this.props.ticker is::: ', this.props.ticker)
@@ -44,7 +45,18 @@ class ShowTicker extends Component {
       // console.log('pieChartDataTopOneHundred[0] is::: ', pieChartDataTopOneHundred[0])
     }
 
-
+    function timeConverter(UNIX_timestamp) {
+      var a = new Date(UNIX_timestamp * 1000);
+      var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+      var year = a.getFullYear();
+      var month = months[a.getMonth()];
+      var date = a.getDate();
+      var hour = a.getHours();
+      var min = a.getMinutes();
+      var sec = a.getSeconds();
+      var time = date + ' ' + month + ' ' + year + ' ' + hour + ':' + min + ':' + sec ;
+      return time;
+    }
 
     return (
       <div>
@@ -138,8 +150,12 @@ class ShowTicker extends Component {
               max supply: {coin.max_supply ? coin.max_supply.toLocaleString() : "null"}
             </div>
             <div>
-              last updated: {coin.last_updated ? coin.last_updated : "no data"}
+              last updated: {coin.last_updated ?
+                timeConverter(coin.last_updated)
+                : "no data"}
             </div>
+            {/* last updated: {coin.last_updated ? new Date(coin.last_updated * 1000) : "no data"} */}
+
 
             <h2>
               quotes, in USD:
