@@ -56,55 +56,60 @@ class ShowTicker extends Component {
 
         {/* [ [name, quotes.USD.market_cap], ] */}
 
-        <h2>
-          Top ten cryptocurrencies by market cap:
-        </h2>
+        <div id="charts">
 
-        <PieChart data={pieChartDataTopTen} />
+          <h2>
+            Top ten cryptocurrencies by market cap:
+          </h2>
 
-        <br></br>
-        <br></br>
+          <PieChart data={pieChartDataTopTen} />
 
-        <h2>
-          Top 100 cryptocurrencies by market cap:
-        </h2>
+          <br></br>
+          <br></br>
 
-        <PieChart data={pieChartDataTopOneHundred} />
+          <h2>
+            Top 100 cryptocurrencies by market cap:
+          </h2>
 
-        <br></br>
-        <br></br>
+          <PieChart data={pieChartDataTopOneHundred} />
 
-      <div className="outline-here">
-        <h2>
-          Top cryptocurrency by market cap, as a fraction of the total market cap of all cryptocurrencies:
-        </h2>
+          <br></br>
+          <br></br>
 
-        <PieChart data={pieChartDataTotalMarketCap} />
+          <div className="outline-here">
+            <h2>
+              Top cryptocurrency by market cap, as a fraction of the total market cap of all cryptocurrencies:
+            </h2>
 
-        <div>
-          Active Cryptocurrencies: {globalData ? globalData.active_cryptocurrencies.toLocaleString() : "shrug"}
+            <PieChart data={pieChartDataTotalMarketCap} />
+
+            <div>
+              Active Cryptocurrencies: {globalData ? globalData.active_cryptocurrencies.toLocaleString() : "shrug"}
+            </div>
+            <div>
+              Active Markets: {globalData ? globalData.active_markets.toLocaleString() : "shrug"}
+            </div>
+
+            <br></br>
+
+            <div>
+              Total volume in last 24 hours: {globalData ? globalData.quotes.USD.total_volume_24h.toLocaleString() : "shrug"}
+            </div>
+
+            <br></br>
+
+            <div>
+              Bitcoin percentage of market cap: {globalData ? globalData.bitcoin_percentage_of_market_cap.toLocaleString() : "shrug"}%
+            </div>
+            <div>
+              Total cryptocurrency market cap (USD): ${globalData ? globalData.quotes.USD.total_market_cap.toLocaleString() : "shrug"}
+            </div>
+
+          </div> {/* pie chart div */}
+
+
+
         </div>
-        <div>
-          Active Markets: {globalData ? globalData.active_markets.toLocaleString() : "shrug"}
-        </div>
-
-        <br></br>
-
-        <div>
-          Total volume in last 24 hours: {globalData ? globalData.quotes.USD.total_volume_24h.toLocaleString() : "shrug"}
-        </div>
-
-        <br></br>
-
-        <div>
-          Bitcoin percentage of market cap: {globalData ? globalData.bitcoin_percentage_of_market_cap.toLocaleString() : "shrug"}%
-        </div>
-        <div>
-          Total cryptocurrency market cap (USD): ${globalData ? globalData.quotes.USD.total_market_cap.toLocaleString() : "shrug"}
-        </div>
-
-
-      </div>
 
         <br></br>
         <br></br>
@@ -115,60 +120,60 @@ class ShowTicker extends Component {
           tickerArray.map( (coin, index) =>
           <div key={index}>
             <h1>
-              {coin.name}
+              {coin.name ? coin.name : "no data"}
             </h1>
             <div>
-              rank: {coin.rank.toLocaleString()}
+              rank: {coin.rank ? coin.rank.toLocaleString() : "no data"}
             </div>
             <div>
-              symbol: {coin.symbol}
+              symbol: {coin.symbol ? coin.symbol : "no data"}
             </div>
             <div>
-              circulating supply: {coin.circulating_supply.toLocaleString()}
+              circulating supply: {coin.circulating_supply ? coin.circulating_supply.toLocaleString() : "no data"}
             </div>
             <div>
-              total supply: {coin.total_supply.toLocaleString()}
+              total supply: {coin.total_supply ? coin.total_supply.toLocaleString() : "no data"}
             </div>
             <div>
               max supply: {coin.max_supply ? coin.max_supply.toLocaleString() : "null"}
             </div>
             <div>
-              last updated: {coin.last_updated}
+              last updated: {coin.last_updated ? coin.last_updated : "no data"}
             </div>
 
-              <h2>
-                quotes, in USD:
-              </h2>
+            <h2>
+              quotes, in USD:
+            </h2>
 
-              <div>
-                market cap: ${coin.quotes.USD.market_cap.toLocaleString()}
-              </div>
+            <div>
+              market cap: ${coin.quotes.USD.market_cap ? coin.quotes.USD.market_cap.toLocaleString() : "no data"}
+            </div>
 
-              <div>
-                price: ${coin.quotes.USD.price.toLocaleString()}
-              </div>
+            <div>
+              price: ${coin.quotes.USD.price ? coin.quotes.USD.price.toLocaleString() : "no data"}
+            </div>
 
-              <div>
-                percent change 1h: <span className={coin.quotes.USD.percent_change_1h > 0 ? "green" : "red"}>
-                {coin.quotes.USD.percent_change_1h.toLocaleString()}
+            <div>
+              percent change 1h: <span className={coin.quotes.USD.percent_change_1h > 0 ? "green" : "red"}>
+                {coin.quotes.USD.percent_change_1h ? coin.quotes.USD.percent_change_1h.toLocaleString() : "no data"}
               </span>%
-              </div>
+            </div>
 
-              <div>
-                percent change 7d: <span className={coin.quotes.USD.percent_change_7d > 0 ? "green" : "red"}>
-                {coin.quotes.USD.percent_change_7d.toLocaleString()}
+            <div>
+              percent change 7d: <span className={coin.quotes.USD.percent_change_7d > 0 ? "green" : "red"}>
+                {coin.quotes.USD.percent_change_7d ? coin.quotes.USD.percent_change_7d.toLocaleString() : "no data"}
               </span>%
-              </div>
+            </div>
 
-              <div>
-                percent change 24h: <span className={coin.quotes.USD.percent_change_24h > 0 ? "green" : "red"}>
-                  {coin.quotes.USD.percent_change_24h.toLocaleString()}
-                </span>%
-              </div>
+            <div>
+              percent change 24h: <span className={coin.quotes.USD.percent_change_24h > 0 ? "green" : "red"}>
+                {coin.quotes.USD.percent_change_24h ? coin.quotes.USD.percent_change_24h.toLocaleString() : "no data"}
+              </span>%
+            </div>
 
-              <div>
-                volume 24h: {coin.quotes.USD.volume_24h.toLocaleString()}
-              </div>
+            <div>
+              volume 24h: {coin.quotes.USD.volume_24h ? coin.quotes.USD.volume_24h.toLocaleString() : "no data"}
+            </div>
             <div>
 
               -----------
@@ -180,8 +185,8 @@ class ShowTicker extends Component {
           {"no tickerData..."}
         </h1>
       }
-      </div>
-    )
-  }
+    </div>
+  )
+}
 }
 export default ShowTicker
