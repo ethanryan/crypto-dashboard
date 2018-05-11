@@ -4,7 +4,6 @@ import '../App.css';
 
 import * as api from '../api'
 
-// import ShowListings from '../components/ShowListings';
 import ShowTicker from '../components/ShowTicker';
 
 
@@ -38,11 +37,6 @@ class DashboardContainer extends Component {
 
       componentDidMount() {
         console.log('componentDidMount, making API calls...')
-
-        // api.getListings()
-        // .then(response => this.setState({
-        //   listings: response
-        // }))
 
         // this.callAPIsContinously()
 
