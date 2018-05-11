@@ -4,6 +4,7 @@ import '../App.css';
 
 import * as api from '../api'
 
+import PieCharts from '../components/PieCharts';
 import ShowTicker from '../components/ShowTicker';
 
 
@@ -64,6 +65,11 @@ class DashboardContainer extends Component {
             <p className="DashboardContainer-intro">
               Crytocurrency coin information will be listed below.
             </p>
+
+            <PieCharts
+              ticker={this.state.ticker[0]}
+              global={this.state.global[1]}
+            />
 
             <ShowTicker
               ticker={this.state.ticker[0]}
