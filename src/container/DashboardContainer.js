@@ -18,44 +18,66 @@ class DashboardContainer extends Component {
     }
   }
 
-  componentDidMount() {
-    console.log('componentDidMount, making API calls...')
+  // callAPIsContinously() {
+  //   console.log("Hello!!!");
+  //
+  //   setInterval( () => {
+  //     api.getTicker().then(response => this.setState({
+  //       ticker: Object.values(response) //converting object into array
+  //     }))}, 2000)
+  //
+  //   setInterval( () => {
+  //     api.getGlobal().then(response => this.setState({
+  //       global: Object.values(response) //converting object into array
+  //     }))}, 2000)
+  //
+  //     setInterval(function(){ console.log("Hello again!!!"); }, 1000)
+  //   }
 
-    api.getListings()
-    .then(response => this.setState({
-      listings: response
-    }))
 
-    api.getTicker()
-    .then(response => this.setState({
-      ticker: Object.values(response) //converting object into array
-    }))
 
-    api.getGlobal()
-    .then(response => this.setState({
-      global: Object.values(response) //converting object into array
-    }))
-    console.log('step 2, setting state with responses from API call promises...')
-  }
+      componentDidMount() {
+        console.log('componentDidMount, making API calls...')
 
-  render() {
-    console.log('this.state is: ' , this.state)
-    return (
-      <div className="DashboardContainer">
-        <header className="DashboardContainer-header">
-          <h1>Welcome to Crypto Dashboard</h1>
-        </header>
-        <p className="DashboardContainer-intro">
-          Crytocurrency coin information will be listed below.
-        </p>
+        // api.getListings()
+        // .then(response => this.setState({
+        //   listings: response
+        // }))
 
-        <ShowTicker
-          ticker={this.state.ticker[0]}
-          global={this.state.global[1]}
-        />
+        // this.callAPIsContinously()
 
-      </div>
-    );
-  }
-}
-export default DashboardContainer;
+        api.getTicker()
+        .then(response => this.setState({
+          ticker: Object.values(response) //converting object into array
+        }))
+
+        api.getGlobal()
+        .then(response => this.setState({
+          global: Object.values(response) //converting object into array
+        }))
+        console.log('step 2, setting state with responses from API call promises...')
+      }
+
+
+      render() {
+
+        console.log('this.state is: ' , this.state)
+        return (
+          <div className="DashboardContainer">
+            <header className="DashboardContainer-header">
+              <h1>Welcome to Crypto Dashboard</h1>
+            </header>
+            <p className="DashboardContainer-intro">
+              Crytocurrency coin information will be listed below.
+            </p>
+
+            <ShowTicker
+              ticker={this.state.ticker[0]}
+              global={this.state.global[1]}
+            />
+
+          </div>
+        );
+      }
+    }
+    export default DashboardContainer;
