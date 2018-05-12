@@ -57,11 +57,9 @@ class ShowTicker extends Component {
                   <h1>
                     {coin.name ? coin.name : "no data"}
                   </h1>
+                  rank: {coin.rank ? coin.rank.toLocaleString() : "no data"}
                 </Card.Header>
 
-                <Card.Meta>
-                  rank: {coin.rank ? coin.rank.toLocaleString() : "no data"}
-                </Card.Meta>
                 <Card.Meta>
                   symbol: {coin.symbol ? coin.symbol : "no data"}
                 </Card.Meta>
@@ -91,7 +89,7 @@ class ShowTicker extends Component {
                       <Statistic.Label>market cap</Statistic.Label>
                     </Statistic>
                   </div>
-                  
+
                   <br></br>
 
                   <div>
