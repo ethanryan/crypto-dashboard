@@ -39,7 +39,11 @@
 }
 
 #showTicker-div {
-  border: 15px solid green;
-  margin-left: 5%;
-  margin-right: 5%;
+  /* border: 15px solid green; */
+  margin-left: 15%;
+  margin-right: 15%;
+}
+
+div.ui.orange.fluid.card {
+  margin-bottom: 25px;
 }

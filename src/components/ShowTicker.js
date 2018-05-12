@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 
+import { Card, Statistic } from 'semantic-ui-react'
+
 class ShowTicker extends Component {
   render() {
     // console.log('this.props.ticker is::: ', this.props.ticker)
@@ -41,79 +43,112 @@ class ShowTicker extends Component {
 
         {tickerArray ?
           tickerArray.map( (coin, index) =>
+
           <div key={index}>
-            <h1>
-              {coin.name ? coin.name : "no data"}
-            </h1>
-            <div>
-              rank: {coin.rank ? coin.rank.toLocaleString() : "no data"}
-            </div>
-            <div>
-              symbol: {coin.symbol ? coin.symbol : "no data"}
-            </div>
-            <div>
-              circulating supply: {coin.circulating_supply ? coin.circulating_supply.toLocaleString() : "no data"}
-            </div>
-            <div>
-              total supply: {coin.total_supply ? coin.total_supply.toLocaleString() : "no data"}
-            </div>
-            <div>
-              max supply: {coin.max_supply ? coin.max_supply.toLocaleString() : "null"}
-            </div>
-            <div>
-              last updated: {coin.last_updated ?
-                timeConverter(coin.last_updated)
-                : "no data"}
-            </div>
-            {/* last updated: {coin.last_updated ? new Date(coin.last_updated * 1000) : "no data"} */}
+            <Card fluid color='orange'>
+              <Card.Content>
+
+                {/* <Statistic>
+                  <Statistic.Value>5,550</Statistic.Value>
+                  <Statistic.Label>Downloads</Statistic.Label>
+                </Statistic> */}
+
+                <Card.Header>
+                  <h1>
+                    {coin.name ? coin.name : "no data"}
+                  </h1>
+                </Card.Header>
+
+                <Card.Meta>
+                  rank: {coin.rank ? coin.rank.toLocaleString() : "no data"}
+                </Card.Meta>
+                <Card.Meta>
+                  symbol: {coin.symbol ? coin.symbol : "no data"}
+                </Card.Meta>
+
+                <Card.Description>
+                  <div>
+                    circulating supply: {coin.circulating_supply ? coin.circulating_supply.toLocaleString() : "no data"}
+                  </div>
+                  <div>
+                    total supply: {coin.total_supply ? coin.total_supply.toLocaleString() : "no data"}
+                  </div>
+                  <div>
+                    max supply: {coin.max_supply ? coin.max_supply.toLocaleString() : "null"}
+                  </div>
+                </Card.Description>
+
+                <br></br>
+
+                <Card.Description>
+                  <h3>
+                    Quotes, in USD:
+                  </h3>
+
+                  <div>
+                    <Statistic>
+                      <Statistic.Value>${coin.quotes.USD.market_cap ? coin.quotes.USD.market_cap.toLocaleString() : "no data"}</Statistic.Value>
+                      <Statistic.Label>market cap</Statistic.Label>
+                    </Statistic>
+                  </div>
+                  
+                  <br></br>
+
+                  <div>
+                    <Statistic size='small'>
+                      <Statistic.Value>${coin.quotes.USD.price ? coin.quotes.USD.price.toLocaleString() : "no data"}</Statistic.Value>
+                      <Statistic.Label>Price</Statistic.Label>
+                    </Statistic>
+                    {/* price: ${coin.quotes.USD.price ? coin.quotes.USD.price.toLocaleString() : "no data"} */}
+                  </div>
+
+                  <br></br>
+
+                  <div>
+                    percent change 1h: <span className={coin.quotes.USD.percent_change_1h > 0 ? "green" : "red"}>
+                      {coin.quotes.USD.percent_change_1h ? coin.quotes.USD.percent_change_1h.toLocaleString() : "no data"}
+                    </span>%
+                  </div>
+
+                  <div>
+                    percent change 7d: <span className={coin.quotes.USD.percent_change_7d > 0 ? "green" : "red"}>
+                      {coin.quotes.USD.percent_change_7d ? coin.quotes.USD.percent_change_7d.toLocaleString() : "no data"}
+                    </span>%
+                  </div>
+
+                  <div>
+                    percent change 24h: <span className={coin.quotes.USD.percent_change_24h > 0 ? "green" : "red"}>
+                      {coin.quotes.USD.percent_change_24h ? coin.quotes.USD.percent_change_24h.toLocaleString() : "no data"}
+                    </span>%
+                  </div>
+
+                  <div>
+                    volume 24h: {coin.quotes.USD.volume_24h ? coin.quotes.USD.volume_24h.toLocaleString() : "no data"}
+                  </div>
+                </Card.Description>
+
+                <br></br>
+
+                <Card.Content extra>
+                  last updated: {coin.last_updated ?
+                    timeConverter(coin.last_updated)
+                    : "no data"}
+                  </Card.Content>
+                  {/* last updated: {coin.last_updated ? new Date(coin.last_updated * 1000) : "no data"} */}
 
 
-            <h2>
-              quotes, in USD:
-            </h2>
+                </Card.Content>
+              </Card>
 
-            <div>
-              market cap: ${coin.quotes.USD.market_cap ? coin.quotes.USD.market_cap.toLocaleString() : "no data"}
             </div>
-
-            <div>
-              price: ${coin.quotes.USD.price ? coin.quotes.USD.price.toLocaleString() : "no data"}
-            </div>
-
-            <div>
-              percent change 1h: <span className={coin.quotes.USD.percent_change_1h > 0 ? "green" : "red"}>
-                {coin.quotes.USD.percent_change_1h ? coin.quotes.USD.percent_change_1h.toLocaleString() : "no data"}
-              </span>%
-            </div>
-
-            <div>
-              percent change 7d: <span className={coin.quotes.USD.percent_change_7d > 0 ? "green" : "red"}>
-                {coin.quotes.USD.percent_change_7d ? coin.quotes.USD.percent_change_7d.toLocaleString() : "no data"}
-              </span>%
-            </div>
-
-            <div>
-              percent change 24h: <span className={coin.quotes.USD.percent_change_24h > 0 ? "green" : "red"}>
-                {coin.quotes.USD.percent_change_24h ? coin.quotes.USD.percent_change_24h.toLocaleString() : "no data"}
-              </span>%
-            </div>
-
-            <div>
-              volume 24h: {coin.quotes.USD.volume_24h ? coin.quotes.USD.volume_24h.toLocaleString() : "no data"}
-            </div>
-            <div>
-
-              -----------
-            </div>
-          </div>
-        )
-        :
-        <h1>
-          {"no tickerData..."}
-        </h1>
-      }
-    </div>
-  )
-}
+          )
+          :
+          <h1>
+            {"no tickerData..."}
+          </h1>
+        }
+      </div>
+    )
+  }
 }
 export default ShowTicker

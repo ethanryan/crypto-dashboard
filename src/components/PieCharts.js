@@ -114,13 +114,13 @@ class PieCharts extends Component {
             </div> */}
 
             <div>
-              The #1 ranked coin, {tickerData ? coinRankOne.name : "no data"}, percentage of the total market cap: {globalData && tickerData ? (coinRankOne.quotes.USD.market_cap / globalData.quotes.USD.total_market_cap * 100).toFixed(2) : "no data"}%
+              The #1 ranked coin, {tickerData && globalData ? coinRankOne.name : "no data"}, percentage of the total market cap: {tickerData && globalData ? (coinRankOne.quotes.USD.market_cap / globalData.quotes.USD.total_market_cap * 100).toFixed(2) : "no data"}%
             </div>
             <div>
-              The #2 ranked coin, {tickerData ? coinRankTwo.name : "no data"}, percentage of the total market cap: {globalData && tickerData ? (coinRankTwo.quotes.USD.market_cap / globalData.quotes.USD.total_market_cap * 100).toFixed(2) : "no data"}%
+              The #2 ranked coin, {tickerData && globalData ? coinRankTwo.name : "no data"}, percentage of the total market cap: {tickerData && globalData ? (coinRankTwo.quotes.USD.market_cap / globalData.quotes.USD.total_market_cap * 100).toFixed(2) : "no data"}%
             </div>
             <div>
-              The #3 ranked coin, {tickerData ? coinRankThree.name : "no data"}, percentage of the total market cap: {globalData && tickerData ? (coinRankThree.quotes.USD.market_cap / globalData.quotes.USD.total_market_cap * 100).toFixed(2) : "no data"}%
+              The #3 ranked coin, {tickerData && globalData ? coinRankThree.name : "no data"}, percentage of the total market cap: {tickerData && globalData ? (coinRankThree.quotes.USD.market_cap / globalData.quotes.USD.total_market_cap * 100).toFixed(2) : "no data"}%
             </div>
             <div>
               Percentage of the total market cap, minus the top three ranked coins: {globalData && tickerData ? ( (globalData.quotes.USD.total_market_cap - coinRankOne.quotes.USD.market_cap - coinRankTwo.quotes.USD.market_cap - coinRankThree.quotes.USD.market_cap) / globalData.quotes.USD.total_market_cap * 100).toFixed(2) : "no data"}%
