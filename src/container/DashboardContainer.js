@@ -72,7 +72,6 @@ class DashboardContainer extends Component {
         </p>
 
         <Index
-          scrollToTop={this.scrollToTop.bind(this)}
           ticker={this.state.ticker[0]}
           global={this.state.global[1]}
         />
@@ -83,6 +82,7 @@ class DashboardContainer extends Component {
         />
 
         <ShowTicker
+          scrollToTop={this.scrollToTop.bind(this)}
           ticker={this.state.ticker[0]}
           global={this.state.global[1]}
         />
