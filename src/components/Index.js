@@ -26,21 +26,23 @@ class Index extends Component {
           INDEX: Number of cryptocurrencies show below, in order of rank: {tickerLength}
         </p>
 
-          <Grid>
-            {tickerArray ?
-              tickerArray.map( (coin, index) =>
-              <div key={index}>
+        <Grid>
+          {tickerArray ?
+            tickerArray.map( (coin, index) =>
+            <div key={index}>
+              <a href={'#' + coin.rank}>
                 <Grid.Column>
                   {coin.rank ? coin.rank.toLocaleString() : "no data"}. {coin.name ? coin.name : "no data"}
                 </Grid.Column>
-              </div>
-            )
-            :
-            <div className="center">
-              {"no tickerData..."}
+              </a>
             </div>
-          }
-        </Grid>
+          )
+          :
+          <div className="center">
+            {"no tickerData..."}
+          </div>
+        }
+      </Grid>
     </div>
   )
 }

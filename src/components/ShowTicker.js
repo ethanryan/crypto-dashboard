@@ -44,7 +44,7 @@ class ShowTicker extends Component {
         {tickerArray ?
           tickerArray.map( (coin, index) =>
 
-          <div key={index}>
+          <div key={index} id={coin.rank ? coin.rank : "no data"}>
             <Card fluid color='orange'>
               <Card.Content>
 
@@ -57,7 +57,7 @@ class ShowTicker extends Component {
                   <h1>
                     {coin.name ? coin.name : "no data"}
                   </h1>
-                  rank: {coin.rank ? coin.rank.toLocaleString() : "no data"}
+                  rank: {coin.rank ? coin.rank : "no data"}
                 </Card.Header>
 
                 <Card.Meta>
