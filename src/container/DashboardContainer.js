@@ -56,6 +56,7 @@ class DashboardContainer extends Component {
   scrollToTop() {
     console.log('scrollToTop called...')
     window.scrollTo(0, 0)
+    window.history.pushState("object or string", "Title", "/");
   }
 
 

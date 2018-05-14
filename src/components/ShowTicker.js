@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-import { Card, Statistic } from 'semantic-ui-react'
+import { Card, Statistic, Button } from 'semantic-ui-react'
 
 class ShowTicker extends Component {
   render() {
@@ -134,7 +134,12 @@ class ShowTicker extends Component {
                   </Card.Content>
                   {/* last updated: {coin.last_updated ? new Date(coin.last_updated * 1000) : "no data"} */}
 
-
+                  <Button
+                    primary
+                    onClick={this.props.scrollToTop}
+                    >
+                      Scroll To Top
+                  </Button>
                 </Card.Content>
               </Card>
 
