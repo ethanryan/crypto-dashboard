@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-import { Button } from 'semantic-ui-react'
+import { Button, Segment } from 'semantic-ui-react'
 
 import ReactChartkick, { PieChart } from 'react-chartkick'
 
@@ -70,47 +70,35 @@ class PieCharts extends Component {
         {/* [ [name, quotes.USD.market_cap], ] */}
 
         <div id="charts">
-          
-          <div id="pie1">
-            <h2>
-              Top ten cryptocurrencies by market cap:
-            </h2>
 
-            <PieChart data={pieChartDataTopTen} id="pie1"/>
-
-            <Button
-              onClick={this.props.scrollToTop}
-              >
-                Scroll To Top
-              </Button>
-            </div>
-
-            <br></br>
-            <br></br>
-            <div id="pie2">
+          <div id="pie1" className="pie">
+            <Segment raised>
               <h2>
-                Top 100 cryptocurrencies by market cap:
+                Top ten cryptocurrencies by market cap:
               </h2>
 
-              <PieChart data={pieChartDataTopOneHundred} />
+              <PieChart data={pieChartDataTopTen} id="pie1"/>
+
+              <br></br>
 
               <Button
                 onClick={this.props.scrollToTop}
                 >
                   Scroll To Top
                 </Button>
+              </Segment>
+            </div>
 
-                <br></br>
-                <br></br>
 
-              </div>
-
-              <div id="pie3">
+            <div id="pie2" className="pie">
+              <Segment raised>
                 <h2>
-                  Top three cryptocurrencies by market cap, as a fraction of the total market cap of all cryptocurrencies:
+                  Top 100 cryptocurrencies by market cap:
                 </h2>
 
-                <PieChart data={pieChartDataTotalMarketCap} />
+                <PieChart data={pieChartDataTopOneHundred} />
+
+                <br></br>
 
                 <Button
                   onClick={this.props.scrollToTop}
@@ -118,45 +106,69 @@ class PieCharts extends Component {
                     Scroll To Top
                   </Button>
 
-                  <div>
-                    Active Cryptocurrencies: {globalData ? globalData.active_cryptocurrencies.toLocaleString() : "shrug"}
-                  </div>
-                  <div>
-                    Active Markets: {globalData ? globalData.active_markets.toLocaleString() : "shrug"}
-                  </div>
+                  <br></br>
+                </Segment>
+              </div>
+
+
+              <div id="pie3" className="pie">
+                <Segment raised>
+                  <h2>
+                    Top three cryptocurrencies by market cap, as a fraction of the total market cap of all cryptocurrencies:
+                  </h2>
+
+                  <PieChart data={pieChartDataTotalMarketCap} />
 
                   <br></br>
 
-                  <div>
-                    Total volume in last 24 hours: {globalData ? globalData.quotes.USD.total_volume_24h.toLocaleString() : "shrug"}
-                  </div>
+                    <div>
+                      Active Cryptocurrencies: {globalData ? globalData.active_cryptocurrencies.toLocaleString() : "shrug"}
+                    </div>
+                    <div>
+                      Active Markets: {globalData ? globalData.active_markets.toLocaleString() : "shrug"}
+                    </div>
 
-                  <br></br>
+                    <br></br>
 
-                  {/* this lists bitcoin percentage from globalData, but i want top three coins, so using coinRank data... */}
-                  {/* <div>
-                    Bitcoin percentage of market cap: {globalData ? globalData.bitcoin_percentage_of_market_cap.toLocaleString() : "shrug"}%
-                  </div> */}
+                    <div>
+                      Total volume in last 24 hours: {globalData ? globalData.quotes.USD.total_volume_24h.toLocaleString() : "shrug"}
+                    </div>
 
-                  <div>
-                    The #1 ranked coin, {tickerData && globalData ? coinRankOne.name : "no data"}, percentage of the total market cap: {tickerData && globalData ? (coinRankOne.quotes.USD.market_cap / globalData.quotes.USD.total_market_cap * 100).toFixed(2) : "no data"}%
-                  </div>
-                  <div>
-                    The #2 ranked coin, {tickerData && globalData ? coinRankTwo.name : "no data"}, percentage of the total market cap: {tickerData && globalData ? (coinRankTwo.quotes.USD.market_cap / globalData.quotes.USD.total_market_cap * 100).toFixed(2) : "no data"}%
-                  </div>
-                  <div>
-                    The #3 ranked coin, {tickerData && globalData ? coinRankThree.name : "no data"}, percentage of the total market cap: {tickerData && globalData ? (coinRankThree.quotes.USD.market_cap / globalData.quotes.USD.total_market_cap * 100).toFixed(2) : "no data"}%
-                  </div>
-                  <div>
-                    Percentage of the total market cap, minus the top three ranked coins: {globalData && tickerData ? ( (globalData.quotes.USD.total_market_cap - coinRankOne.quotes.USD.market_cap - coinRankTwo.quotes.USD.market_cap - coinRankThree.quotes.USD.market_cap) / globalData.quotes.USD.total_market_cap * 100).toFixed(2) : "no data"}%
-                  </div>
+                    <br></br>
 
-                  <br></br>
+                    {/* this lists bitcoin percentage from globalData, but i want top three coins, so using coinRank data... */}
+                    {/* <div>
+                      Bitcoin percentage of market cap: {globalData ? globalData.bitcoin_percentage_of_market_cap.toLocaleString() : "shrug"}%
+                    </div> */}
 
-                  <div>
-                    Total cryptocurrency market cap (USD): ${globalData ? globalData.quotes.USD.total_market_cap.toLocaleString() : "shrug"}
-                  </div>
+                    <div>
+                      The #1 ranked coin, {tickerData && globalData ? coinRankOne.name : "no data"}, percentage of the total market cap: {tickerData && globalData ? (coinRankOne.quotes.USD.market_cap / globalData.quotes.USD.total_market_cap * 100).toFixed(2) : "no data"}%
+                    </div>
+                    <div>
+                      The #2 ranked coin, {tickerData && globalData ? coinRankTwo.name : "no data"}, percentage of the total market cap: {tickerData && globalData ? (coinRankTwo.quotes.USD.market_cap / globalData.quotes.USD.total_market_cap * 100).toFixed(2) : "no data"}%
+                    </div>
+                    <div>
+                      The #3 ranked coin, {tickerData && globalData ? coinRankThree.name : "no data"}, percentage of the total market cap: {tickerData && globalData ? (coinRankThree.quotes.USD.market_cap / globalData.quotes.USD.total_market_cap * 100).toFixed(2) : "no data"}%
+                    </div>
+                    <div>
+                      Percentage of the total market cap, minus the top three ranked coins: {globalData && tickerData ? ( (globalData.quotes.USD.total_market_cap - coinRankOne.quotes.USD.market_cap - coinRankTwo.quotes.USD.market_cap - coinRankThree.quotes.USD.market_cap) / globalData.quotes.USD.total_market_cap * 100).toFixed(2) : "no data"}%
+                    </div>
 
+                    <br></br>
+
+                    <div>
+                      Total cryptocurrency market cap (USD): ${globalData ? globalData.quotes.USD.total_market_cap.toLocaleString() : "shrug"}
+                    </div>
+
+                    <br></br>
+
+                    <Button
+                      onClick={this.props.scrollToTop}
+                      >
+                        Scroll To Top
+                      </Button>
+
+                  </Segment>
                 </div>
 
 
