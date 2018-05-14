@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-import { Grid } from 'semantic-ui-react'
+import { Grid, Segment } from 'semantic-ui-react'
 
 class Index extends Component {
   render() {
@@ -20,6 +20,7 @@ class Index extends Component {
 
     return (
       <div id="index">
+        <Segment raised>
         <p>
           INDEX
         </p>
@@ -59,6 +60,7 @@ class Index extends Component {
           </div>
         }
       </Grid>
+      </Segment>
     </div>
   )
 }
