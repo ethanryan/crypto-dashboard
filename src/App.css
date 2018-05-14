@@ -30,6 +30,12 @@
   color: white;
 }
 
+#index {
+  border: 2px solid red;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+}
+
 #charts {
   border: 3px solid purple;
   margin-left: 2%;
