@@ -70,92 +70,99 @@ class PieCharts extends Component {
         {/* [ [name, quotes.USD.market_cap], ] */}
 
         <div id="charts">
-
-          <h2>
-            Top ten cryptocurrencies by market cap:
-          </h2>
-
-          <PieChart data={pieChartDataTopTen} />
-
-          <Button
-            onClick={this.props.scrollToTop}
-            >
-              Scroll To Top
-          </Button>
-
-          <br></br>
-          <br></br>
-
-          <h2>
-            Top 100 cryptocurrencies by market cap:
-          </h2>
-
-          <PieChart data={pieChartDataTopOneHundred} />
-
-          <Button
-            onClick={this.props.scrollToTop}
-            >
-              Scroll To Top
-          </Button>
-
-          <br></br>
-          <br></br>
-
+          
+          <div id="pie1">
             <h2>
-              Top three cryptocurrencies by market cap, as a fraction of the total market cap of all cryptocurrencies:
+              Top ten cryptocurrencies by market cap:
             </h2>
 
-            <PieChart data={pieChartDataTotalMarketCap} />
+            <PieChart data={pieChartDataTopTen} id="pie1"/>
 
             <Button
               onClick={this.props.scrollToTop}
               >
                 Scroll To Top
-            </Button>
-
-            <div>
-              Active Cryptocurrencies: {globalData ? globalData.active_cryptocurrencies.toLocaleString() : "shrug"}
-            </div>
-            <div>
-              Active Markets: {globalData ? globalData.active_markets.toLocaleString() : "shrug"}
+              </Button>
             </div>
 
             <br></br>
-
-            <div>
-              Total volume in last 24 hours: {globalData ? globalData.quotes.USD.total_volume_24h.toLocaleString() : "shrug"}
-            </div>
-
             <br></br>
+            <div id="pie2">
+              <h2>
+                Top 100 cryptocurrencies by market cap:
+              </h2>
 
-            {/* this lists bitcoin percentage from globalData, but i want top three coins, so using coinRank data... */}
-            {/* <div>
-              Bitcoin percentage of market cap: {globalData ? globalData.bitcoin_percentage_of_market_cap.toLocaleString() : "shrug"}%
-            </div> */}
+              <PieChart data={pieChartDataTopOneHundred} />
 
-            <div>
-              The #1 ranked coin, {tickerData && globalData ? coinRankOne.name : "no data"}, percentage of the total market cap: {tickerData && globalData ? (coinRankOne.quotes.USD.market_cap / globalData.quotes.USD.total_market_cap * 100).toFixed(2) : "no data"}%
+              <Button
+                onClick={this.props.scrollToTop}
+                >
+                  Scroll To Top
+                </Button>
+
+                <br></br>
+                <br></br>
+
+              </div>
+
+              <div id="pie3">
+                <h2>
+                  Top three cryptocurrencies by market cap, as a fraction of the total market cap of all cryptocurrencies:
+                </h2>
+
+                <PieChart data={pieChartDataTotalMarketCap} />
+
+                <Button
+                  onClick={this.props.scrollToTop}
+                  >
+                    Scroll To Top
+                  </Button>
+
+                  <div>
+                    Active Cryptocurrencies: {globalData ? globalData.active_cryptocurrencies.toLocaleString() : "shrug"}
+                  </div>
+                  <div>
+                    Active Markets: {globalData ? globalData.active_markets.toLocaleString() : "shrug"}
+                  </div>
+
+                  <br></br>
+
+                  <div>
+                    Total volume in last 24 hours: {globalData ? globalData.quotes.USD.total_volume_24h.toLocaleString() : "shrug"}
+                  </div>
+
+                  <br></br>
+
+                  {/* this lists bitcoin percentage from globalData, but i want top three coins, so using coinRank data... */}
+                  {/* <div>
+                    Bitcoin percentage of market cap: {globalData ? globalData.bitcoin_percentage_of_market_cap.toLocaleString() : "shrug"}%
+                  </div> */}
+
+                  <div>
+                    The #1 ranked coin, {tickerData && globalData ? coinRankOne.name : "no data"}, percentage of the total market cap: {tickerData && globalData ? (coinRankOne.quotes.USD.market_cap / globalData.quotes.USD.total_market_cap * 100).toFixed(2) : "no data"}%
+                  </div>
+                  <div>
+                    The #2 ranked coin, {tickerData && globalData ? coinRankTwo.name : "no data"}, percentage of the total market cap: {tickerData && globalData ? (coinRankTwo.quotes.USD.market_cap / globalData.quotes.USD.total_market_cap * 100).toFixed(2) : "no data"}%
+                  </div>
+                  <div>
+                    The #3 ranked coin, {tickerData && globalData ? coinRankThree.name : "no data"}, percentage of the total market cap: {tickerData && globalData ? (coinRankThree.quotes.USD.market_cap / globalData.quotes.USD.total_market_cap * 100).toFixed(2) : "no data"}%
+                  </div>
+                  <div>
+                    Percentage of the total market cap, minus the top three ranked coins: {globalData && tickerData ? ( (globalData.quotes.USD.total_market_cap - coinRankOne.quotes.USD.market_cap - coinRankTwo.quotes.USD.market_cap - coinRankThree.quotes.USD.market_cap) / globalData.quotes.USD.total_market_cap * 100).toFixed(2) : "no data"}%
+                  </div>
+
+                  <br></br>
+
+                  <div>
+                    Total cryptocurrency market cap (USD): ${globalData ? globalData.quotes.USD.total_market_cap.toLocaleString() : "shrug"}
+                  </div>
+
+                </div>
+
+
+              </div>
             </div>
-            <div>
-              The #2 ranked coin, {tickerData && globalData ? coinRankTwo.name : "no data"}, percentage of the total market cap: {tickerData && globalData ? (coinRankTwo.quotes.USD.market_cap / globalData.quotes.USD.total_market_cap * 100).toFixed(2) : "no data"}%
-            </div>
-            <div>
-              The #3 ranked coin, {tickerData && globalData ? coinRankThree.name : "no data"}, percentage of the total market cap: {tickerData && globalData ? (coinRankThree.quotes.USD.market_cap / globalData.quotes.USD.total_market_cap * 100).toFixed(2) : "no data"}%
-            </div>
-            <div>
-              Percentage of the total market cap, minus the top three ranked coins: {globalData && tickerData ? ( (globalData.quotes.USD.total_market_cap - coinRankOne.quotes.USD.market_cap - coinRankTwo.quotes.USD.market_cap - coinRankThree.quotes.USD.market_cap) / globalData.quotes.USD.total_market_cap * 100).toFixed(2) : "no data"}%
-            </div>
-
-            <br></br>
-
-            <div>
-              Total cryptocurrency market cap (USD): ${globalData ? globalData.quotes.USD.total_market_cap.toLocaleString() : "shrug"}
-            </div>
-
-
-        </div>
-        </div>
-  )
-}
-}
-export default PieCharts
+          )
+        }
+      }
+      export default PieCharts

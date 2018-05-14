@@ -27,20 +27,22 @@ class Index extends Component {
         </p>
 
         <p>
-          <a href="pie1">
+          <a href="#pie1">
             Pie Chart 1: Top ten cryptocurrencies by market cap
           </a>
         </p>
         <p>
-          <a href="pie2">
-            Pie Chart 1: Top 100 cryptocurrencies by market cap
+          <a href="#pie2">
+            Pie Chart 2: Top 100 cryptocurrencies by market cap
           </a>
         </p>
         <p>
-          <a href="pie3">
-            Pie Chart 1: Top three cryptocurrencies by market cap, as a fraction of the total market cap of all cryptocurrencies
+          <a href="#pie3">
+            Pie Chart 3: Top three cryptocurrencies, as a fraction of the total market cap
           </a>
         </p>
+
+        <br></br>
 
         <Grid>
           {tickerArray ?
