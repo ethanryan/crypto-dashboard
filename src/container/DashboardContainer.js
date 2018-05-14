@@ -59,7 +59,7 @@ class DashboardContainer extends Component {
 
         console.log('this.state is: ' , this.state)
         return (
-          <div className="DashboardContainer">
+          <div className="center">
             <header className="DashboardContainer-header">
               <h1>Welcome to Crypto Dashboard</h1>
             </header>
