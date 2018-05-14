@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 
+import { Button } from 'semantic-ui-react'
+
 import ReactChartkick, { PieChart } from 'react-chartkick'
 
 import Chart from 'chart.js'
@@ -75,6 +77,12 @@ class PieCharts extends Component {
 
           <PieChart data={pieChartDataTopTen} />
 
+          <Button
+            onClick={this.props.scrollToTop}
+            >
+              Scroll To Top
+          </Button>
+
           <br></br>
           <br></br>
 
@@ -84,6 +92,12 @@ class PieCharts extends Component {
 
           <PieChart data={pieChartDataTopOneHundred} />
 
+          <Button
+            onClick={this.props.scrollToTop}
+            >
+              Scroll To Top
+          </Button>
+
           <br></br>
           <br></br>
 
@@ -92,6 +106,12 @@ class PieCharts extends Component {
             </h2>
 
             <PieChart data={pieChartDataTotalMarketCap} />
+
+            <Button
+              onClick={this.props.scrollToTop}
+              >
+                Scroll To Top
+            </Button>
 
             <div>
               Active Cryptocurrencies: {globalData ? globalData.active_cryptocurrencies.toLocaleString() : "shrug"}
