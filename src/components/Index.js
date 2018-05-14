@@ -23,7 +23,23 @@ class Index extends Component {
     return (
       <div id="index">
         <p>
-          INDEX: Number of cryptocurrencies show below, in order of rank: {tickerLength}
+          INDEX
+        </p>
+
+        <p>
+          <a href="pie1">
+            Pie Chart 1: Top ten cryptocurrencies by market cap
+          </a>
+        </p>
+        <p>
+          <a href="pie2">
+            Pie Chart 1: Top 100 cryptocurrencies by market cap
+          </a>
+        </p>
+        <p>
+          <a href="pie3">
+            Pie Chart 1: Top three cryptocurrencies by market cap, as a fraction of the total market cap of all cryptocurrencies
+          </a>
         </p>
 
         <Grid>
