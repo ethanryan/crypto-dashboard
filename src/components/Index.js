@@ -16,8 +16,6 @@ class Index extends Component {
       tickerArray = tickerArray.sort(function(a, b) {
         return a.rank - b.rank;
       });
-
-      var tickerLength = tickerArray.length
     }
 
     return (
